@@ -1,0 +1,168 @@
+.chat_box, .msg_box{
+    cursor: pointer;
+    position:fixed;
+    bottom:0px;
+    right: 20px;
+    background: white;
+    width:250px;
+
+    border-radius: 5px 5px 0px 0px;
+}
+
+.chat_head, .msg_head{
+    background: #2d3436;
+    padding: 10px;
+    color: white;
+    border-radius: 5px 5px 0px 0px;
+    text-align: center;
+
+}
+
+.chat_body{
+    height:400px;
+    background: #636e72;
+    overflow: auto;
+    overflow-x:hidden;
+
+
+}
+
+.username_chat{
+    cursor: pointer;
+    padding:20px 25px;
+    position: relative;
+}
+
+.username_chat:hover{
+    background: grey;
+}
+
+.username_chat:before{
+    content:"";
+    position: absolute;
+    background: greenyellow;
+    width: 10px;
+    height: 10px;
+    left: 5px;
+    top: 27px;
+    border-radius: 50%;
+}
+
+
+.msg_box{
+    background: white;
+    width: 250px;
+    bottom:-5px;
+    
+}
+
+.msg_head{
+    background: #b2bec3;
+}
+
+.msg_close{
+    float: right;
+}
+
+.msg_body{
+    height: 250px;
+    font-size: 12px;
+    overflow: auto;
+    overflow-x:hidden;
+}
+
+.msg_input{
+    border: transparent;
+    border-top: 1px solid #b2bec3;
+    width: 100%;
+    padding: 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.msg_a{
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    min-height: 15px;
+    padding: 10px;
+    background: #6c5ce7;
+    position: relative;
+    border-radius: 5px;
+}
+
+.msg_a:before{
+    content:"";
+    position: absolute;
+    width: 0px;
+    top:7px;
+    height: 0px;
+    left: -20px;
+    border: 10px solid;
+    border-color:transparent #6c5ce7 transparent transparent;
+
+}
+
+.msg_b{
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-left: 20px;
+    min-height: 15px;
+    padding: 10px;
+    background: #a29bfe;
+    position: relative;
+    border-radius: 5px;
+}
+
+.msg_b:before{
+    content:"";
+    position: absolute;
+    width: 0px;
+    top:12px;
+    height: 0px;
+    right: -20px;
+    border: 10px solid;
+    border-color:transparent  transparent transparent #a29bfe;
+
+}
+
+.scrollbar {
+    background-color: #F5F5F5;
+    float: left;
+    height: 300px;
+    margin-bottom: 25px;
+    margin-left: 22px;
+    margin-top: 40px;
+    width: 65px;
+    overflow-y: scroll;
+}
+
+.force-overflow {
+    min-height: 450px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+
