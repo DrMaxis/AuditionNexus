@@ -33,9 +33,7 @@ abstract class BaseUser extends Authenticatable implements Recordable
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'email',
+        'username',
         'avatar_type',
         'avatar_location',
         'password',
@@ -47,6 +45,7 @@ abstract class BaseUser extends Authenticatable implements Recordable
         'last_login_at',
         'last_login_ip',
         'to_be_logged_out',
+        'otp'
     ];
 
     /**
@@ -54,7 +53,7 @@ abstract class BaseUser extends Authenticatable implements Recordable
      * @var array
      */
     protected $appends = [
-        'full_name',
+        //'full_name',
     ];
 
     /**

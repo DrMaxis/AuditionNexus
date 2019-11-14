@@ -8,7 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-home"></i>Home</a>
+                <a class="nav-link" href="{{route('frontend.index')}}"><i class="fas fa-home"></i>Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"><i class="fas fa-book"></i>Guide</a>
@@ -17,7 +17,7 @@
                 <a class="nav-link" href="#"><i class="fas fa-download"></i>Download</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fab fa-discord"></i>Discord</a>
+                <a class="nav-link" href="https://discord.gg/5Waunt2"><i class="fab fa-discord"></i>Discord</a>
             </li>
             <li class="nav-item">
 

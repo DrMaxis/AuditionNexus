@@ -21,4 +21,9 @@
 
     
     <script defer src="{{asset('vendor/plugins/font-awesome.min.js')}}"></script>
+    <script>
+    
+    const submitUrl = "{{route('frontend.user.game.otp')}}";
+
+    </script>
 </head>

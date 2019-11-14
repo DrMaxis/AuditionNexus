@@ -33,7 +33,7 @@ return [
         'requires_approval' => env('REQUIRES_APPROVAL', false),
 
         // Login username to be used by the controller.
-        'username' => 'email',
+        'username' => 'username',
 
         /*
          * When active, a user can only have one session active at a time

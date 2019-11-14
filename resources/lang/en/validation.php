@@ -158,9 +158,8 @@ return [
                         'name' => 'Group Name',
                     ],
 
-                    'name' => 'Name',
-                    'first_name' => 'First Name',
-                    'last_name' => 'Last Name',
+                    'username' => 'Username',
+                    
                     'system' => 'System',
                 ],
 
@@ -193,7 +192,7 @@ return [
             'email' => 'E-mail Address',
             'first_name' => 'First Name',
             'last_name' => 'Last Name',
-            'name' => 'Full Name',
+            'username' => 'Username',
             'password' => 'Password',
             'password_confirmation' => 'Password Confirmation',
             'phone' => 'Phone',

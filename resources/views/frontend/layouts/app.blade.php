@@ -36,6 +36,8 @@
 <script type="text/javascript" src="{{asset('vendor/plugins/js/emojis.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendor/plugins/js/jquery.emojiarea.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendor/plugins/js/emojisarea.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/GenerateOneTimePass.js')}}"></script>
+
 
 @yield('page-scripts')
     </body>

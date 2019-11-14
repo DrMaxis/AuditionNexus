@@ -27,11 +27,11 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                {{ html()->label(__('validation.attributes.frontend.first_name'))->for('first_name') }}
+                {{ html()->label(__('validation.attributes.frontend.username'))->for('username') }}
 
-                {{ html()->text('first_name')
+                {{ html()->text('username')
                     ->class('form-control')
-                    ->placeholder(__('validation.attributes.frontend.first_name'))
+                    ->placeholder(__('validation.attributes.frontend.username'))
                     ->attribute('maxlength', 191)
                     ->required()
                     ->autofocus() }}
@@ -39,19 +39,7 @@
         </div><!--col-->
     </div><!--row-->
 
-    <div class="row">
-        <div class="col">
-            <div class="form-group">
-                {{ html()->label(__('validation.attributes.frontend.last_name'))->for('last_name') }}
-
-                {{ html()->text('last_name')
-                    ->class('form-control')
-                    ->placeholder(__('validation.attributes.frontend.last_name'))
-                    ->attribute('maxlength', 191)
-                    ->required() }}
-            </div><!--form-group-->
-        </div><!--col-->
-    </div><!--row-->
+   
 
     @if ($logged_in_user->canChangeEmail())
         <div class="row">

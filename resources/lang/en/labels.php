@@ -122,6 +122,7 @@ return [
             'register_box_title' => 'Register',
             'register_button' => 'Register',
             'remember_me' => 'Remember Me',
+            'otp_apply' => 'Apply for Otp'
         ],
 
         'contact' => [
@@ -152,6 +153,7 @@ return [
                 'name' => 'Name',
                 'first_name' => 'First Name',
                 'last_name' => 'Last Name',
+                'username' => 'Username',
                 'update_information' => 'Update Information',
             ],
         ],

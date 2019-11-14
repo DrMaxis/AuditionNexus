@@ -29,11 +29,11 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' => ['required', 'string'],
-            'last_name' => ['required', 'string'],
-            'email' => ['required', 'string', 'email', Rule::unique('users')],
+            'username' => ['required', 'string'],
+            //'email' => ['required', 'string', 'email', Rule::unique('users')],
             'password' => PasswordRules::register($this->email),
             'g-recaptcha-response' => ['required_if:captcha_status,true', 'captcha'],
+            'otp' => ['boolean']
         ];
     }
 

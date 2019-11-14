@@ -94,16 +94,20 @@ class UserRepository extends BaseRepository
     {
         return DB::transaction(function () use ($data) {
             $user = $this->model::create([
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'email' => $data['email'],
-                'confirmation_code' => md5(uniqid(mt_rand(), true)),
-                'active' => true,
+                'username' => $data['username'],
                 'password' => $data['password'],
+                'active' => true,
                 // If users require approval or needs to confirm email
-                'confirmed' => ! (config('access.users.requires_approval') || config('access.users.confirm_email')),
-            ]);
+                'confirmed' => ! (config('access.users.requires_approval') || config('access.users.confirm_email'))
 
+            ]);
+if($data['otp'] == 'true' || $data['otp'] == true) {
+
+    
+
+
+
+}
             if ($user) {
                 // Add the default site role to the new user
                 $user->assignRole(config('access.users.default_role'));
@@ -137,8 +141,7 @@ class UserRepository extends BaseRepository
     public function update($id, array $input, $image = false)
     {
         $user = $this->getById($id);
-        $user->first_name = $input['first_name'];
-        $user->last_name = $input['last_name'];
+        $user->username = $input['username'];
         $user->avatar_type = $input['avatar_type'];
 
         // Upload profile image if necessary

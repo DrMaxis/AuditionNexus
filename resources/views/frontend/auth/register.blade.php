@@ -17,42 +17,20 @@
                         <div class="row">
                             <div class="col-12 col-md-6">
                                 <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.first_name'))->for('first_name') }}
+                                    {{ html()->label(__('validation.attributes.frontend.username'))->for('username') }}
 
-                                    {{ html()->text('first_name')
+                                    {{ html()->text('username')
                                         ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.first_name'))
+                                        ->placeholder(__('validation.attributes.frontend.username'))
                                         ->attribute('maxlength', 191)
                                         ->required()}}
                                 </div><!--col-->
                             </div><!--row-->
 
-                            <div class="col-12 col-md-6">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.last_name'))->for('last_name') }}
-
-                                    {{ html()->text('last_name')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.last_name'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
+                           
                         </div><!--row-->
 
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
-
-                                    {{ html()->email('email')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
+                       
 
                         <div class="row">
                             <div class="col">
@@ -88,6 +66,15 @@
                                 </div><!--col-->
                             </div><!--row-->
                         @endif
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <div class="checkbox">
+                                        {{ html()->label(html()->checkbox('otp', false, 0) . ' ' . __('labels.frontend.auth.otp_apply'))->for('otp') }}
+                                    </div>
+                                </div><!--form-group-->
+                            </div><!--col-->
+                        </div><!--row-->
 
                         <div class="row">
                             <div class="col">
@@ -96,6 +83,8 @@
                                 </div><!--form-group-->
                             </div><!--col-->
                         </div><!--row-->
+
+
                     {{ html()->form()->close() }}
 
                     <div class="row">
