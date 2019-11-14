@@ -33,8 +33,7 @@ class UserRepositoryTest extends TestCase
     protected function getValidUserData($userData = [])
     {
         return array_merge([
-            'first_name' => 'John',
-            'last_name' => 'Doe',
+            'username' => 'John',
             'email' => 'john@example.com',
             'timezone' => 'UTC',
             'password' => 'secret',
@@ -118,13 +117,13 @@ class UserRepositoryTest extends TestCase
         $user = factory(User::class)->create();
 
         $this->userRepository->update($user, $this->getValidUserData([
-            'first_name' => 'updated',
-            'last_name' => 'name',
+            'username' => 'updated',
+            
             'email' => 'new@email.com',
         ]));
 
-        $this->assertSame('updated', $user->fresh()->first_name);
-        $this->assertSame('name', $user->fresh()->last_name);
+        $this->assertSame('updated', $user->fresh()->username);
+        
         $this->assertSame('new@email.com', $user->fresh()->email);
 
         Event::assertDispatched(UserUpdated::class);
