@@ -29,8 +29,7 @@ class UserRegistrationTest extends TestCase
         factory(Role::class)->create(['name' => 'user']);
 
         return $this->post('/register', array_merge([
-            'first_name' => 'John',
-            'last_name' => 'Doe',
+            'username' => 'John',
             'email' => 'john@example.com',
             'password' => 'OC4Nzu270N!QBVi%U%qX',
             'password_confirmation' => 'OC4Nzu270N!QBVi%U%qX',
@@ -54,16 +53,15 @@ class UserRegistrationTest extends TestCase
     public function a_user_can_register_an_account()
     {
         $this->registerUser([
-            'first_name' => 'John',
-            'last_name' => 'Doe',
+            'username' => 'John',
             'email' => 'john@example.com',
             'password' => 'OC4Nzu270N!QBVi%U%qX',
             'password_confirmation' => 'OC4Nzu270N!QBVi%U%qX',
         ]);
 
         $newUser = resolve(UserRepository::class)->where('email', 'john@example.com')->first();
-        $this->assertSame($newUser->first_name, 'John');
-        $this->assertSame($newUser->last_name, 'Doe');
+        $this->assertSame($newUser->username, 'John');
+       
         $this->assertTrue(Hash::check('OC4Nzu270N!QBVi%U%qX', $newUser->password));
     }
 
@@ -132,10 +130,10 @@ class UserRegistrationTest extends TestCase
     }
 
     /** @test */
-    public function first_name_is_required()
+    public function username_is_required()
     {
         $response = $this->post('/register', [
-            'last_name' => 'Doe',
+            'username' => 'Doe',
             'email' => 'john@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
@@ -144,31 +142,7 @@ class UserRegistrationTest extends TestCase
         $response->assertSessionHasErrors('first_name');
     }
 
-    /** @test */
-    public function last_name_is_required()
-    {
-        $response = $this->post('/register', [
-            'first_name' => 'John',
-            'email' => 'john@example.com',
-            'password' => 'password',
-            'password_confirmation' => 'password',
-        ]);
-
-        $response->assertSessionHasErrors('last_name');
-    }
-
-    /** @test */
-    public function email_is_required()
-    {
-        $response = $this->post('/register', [
-            'first_name' => 'John',
-            'last_name' => 'Doe',
-            'password' => 'password',
-            'password_confirmation' => 'password',
-        ]);
-
-        $response->assertSessionHasErrors('email');
-    }
+ 
 
     /** @test */
     public function email_must_be_unique()
@@ -176,8 +150,7 @@ class UserRegistrationTest extends TestCase
         factory(User::class)->create(['email' => 'john@example.com']);
 
         $response = $this->post('/register', [
-            'first_name' => 'John',
-            'last_name' => 'Doe',
+            'username' => 'John',
             'email' => 'john@example.com',
             'password' => 'password',
             'password_confirmation' => 'password',
