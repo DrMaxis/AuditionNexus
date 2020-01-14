@@ -22,8 +22,7 @@
         </p>
         <input type="hidden" value="{{$logged_in_user->otp_code}}" id="otp_hidden">
         <p>
-            Your OTP will expire at {{ timezone()->convertToLocal($logged_in_user->otp_expiration_date) }}
-            ({{ $logged_in_user->otp_expiration_date->diffForHumans() }})
+            Your OTP will expire {{ $logged_in_user->otp_expiration_date->diffForHumans() }}.
 
         </p>
     </div>
@@ -65,7 +64,7 @@ new ClipboardJS('#otp_reveal_btn');
                 success: function(e) {
                     console.log(e);
                     $('#tb').val(e);
-                }
+                    window.location.reload();                }
             })
       
     });
