@@ -31,6 +31,9 @@ class CreateUsersTable extends Migration
             $table->string('last_login_ip')->nullable();
             $table->boolean('to_be_logged_out')->default(false);
             $table->boolean('otp')->default(false);
+            $table->string('otp_code')->nullable();
+            $table->timestamp('otp_creation_date')->nullable();
+            $table->timestamp('otp_expiration_date')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

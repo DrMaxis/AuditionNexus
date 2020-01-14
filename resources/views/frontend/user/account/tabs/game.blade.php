@@ -1,15 +1,43 @@
 <div class="xyz">
+    @if($logged_in_user->otp == 1 && $logged_in_user->otp_code != null)
+
+    @if($logged_in_user->otp_expiration_date->isPast() )
+
+    <div class="col-md-6">
+        <p> Your currecnt OTP is {{$logged_in_user->otp_code}} </p>
+        <p>
+            Your OTP has expired and you will need to generate a new one.
+
+        </p>
+        <form name="rn">
+            <input type="text" id="tb" name="tb" readonly />
+            <input id="gen0" data-userID="{{$logged_in_user->id}}" type="button" value="Generate One time Password!" />
+        </form>
+    </div>
+@else 
+    <div class="col-md-6">
+        <p> Your currecnt OTP is {{$logged_in_user->otp_code}} </p>
+        <p>
+            Your OTP will expire at {{ timezone()->convertToLocal($logged_in_user->otp_expiration_date) }}
+            ({{ $logged_in_user->otp_expiration_date->diffForHumans() }})
+
+        </p>
+    </div>
+@endif
+
+    @else
+
     <form name="rn">
         <input type="text" id="tb" name="tb" readonly />
-        <input id="gen0" type="button" value="Generate One time Password!" />
+        <input id="gen0" data-userID="{{$logged_in_user->id}}" type="button" value="Generate One time Password!" />
     </form>
+    @endif
 </div>
 
 
 @section('page-scripts')
-    
-<script>
 
+<script>
     (function() {
     
     const submitButton = $("#gen0");
@@ -18,9 +46,11 @@
     
     submitButton.click(function(event) {
         event.preventDefault();
+        var userID = $('#gen0').attr('data-userID');
             $.ajax({
                 method: "GET",
                 url: submitUrl,
+                
                
     
                 success: function(e) {
@@ -32,5 +62,5 @@
     });
     })();
     
-    </script>
+</script>
 @endsection

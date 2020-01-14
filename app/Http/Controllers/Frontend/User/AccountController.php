@@ -4,12 +4,30 @@ namespace App\Http\Controllers\Frontend\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Request;
+use App\Repositories\Frontend\Auth\UserRepository;
 
 /**
  * Class AccountController.
  */
 class AccountController extends Controller
 {
+
+/**
+     * @var UserRepository
+     */
+    protected $userRepository;
+
+    /**
+     * AccountController constructor.
+     *
+     * @param UserRepository $userRepository
+     */
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -20,10 +38,16 @@ class AccountController extends Controller
 
     public function generateOneTimeGamePass(Request $request)
     {
-
+        $user = auth()->user();
         $newpass = generateOTP();
+        $otp = $this->userRepository->updateUserOTP($newpass);
 
-        return response()->json($newpass);
+        if($otp) {
+         return response()->json($newpass);   
+        } else {
+            return response()->json('Error generating and activating a One time Password for this account.');   
+        }
+        
 
 /* 
         save new pass into game db

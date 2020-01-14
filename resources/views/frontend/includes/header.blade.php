@@ -14,7 +14,7 @@
                 <a class="nav-link" href="#"><i class="fas fa-book"></i>Guide</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-download"></i>Download</a>
+                <a class="nav-link" href="{{route('frontend.downloads.index')}}"><i class="fas fa-download"></i>Download</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="https://discord.gg/5Waunt2"><i class="fab fa-discord"></i>Discord</a>

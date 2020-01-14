@@ -45,7 +45,10 @@ abstract class BaseUser extends Authenticatable implements Recordable
         'last_login_at',
         'last_login_ip',
         'to_be_logged_out',
-        'otp'
+        'otp',
+        'otp_code',
+        'otp_creation_date',
+        'otp_expiration_date',
     ];
 
     /**
@@ -73,6 +76,8 @@ abstract class BaseUser extends Authenticatable implements Recordable
     protected $dates = [
         'last_login_at',
         'password_changed_at',
+        'otp_creation_date',
+'otp_expiration_date',
     ];
 
     /**

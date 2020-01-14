@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="{{asset('vendor/plugins/chat.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/plugins/jquery.emojiarea.css')}}">
 
+    @yield('xcss')
+
     
     <script defer src="{{asset('vendor/plugins/font-awesome.min.js')}}"></script>
     <script>
